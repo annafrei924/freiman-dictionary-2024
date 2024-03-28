@@ -24,7 +24,8 @@ public class EnglishDictionary {
     public EnglishDictionary() throws CsvValidationException, IOException {
 
         // Create an object of filereader class with CSV file as a parameter.
-        FileReader filereader = new FileReader("/Users/annafreiman/Desktop/MCON152/freiman-dictionary-2024/src/main/resources/englishDictionary.csv");
+        FileReader filereader = new FileReader(
+                "/Users/annafreiman/Desktop/MCON152/freiman-dictionary-2024/src/main/resources/englishDictionary.csv");
 
         CSVReader reader = new CSVReader(filereader);
         String[] nextRecord;
@@ -49,10 +50,10 @@ public class EnglishDictionary {
                 definition.addAll(Arrays.asList(entry[2].split(";")));
                 break;
             }
-//            } else if (word.compareToIgnoreCase(entry[0]) > 0) {
-//                // Break if we've passed where the word would be
-//                break;
-//            }
+//      } else if (word.compareToIgnoreCase(entry[0]) > 0) {
+//      // Break if we've passed where the word would be
+//      break;
+//      }
         }
 
         if (definition.isEmpty()) {
