@@ -14,13 +14,6 @@ import java.util.List;
 public class EnglishDictionary {
     private ArrayList<String[]> dictionary = new ArrayList<>();
 
-    public static void main(String[] args) throws CsvValidationException, IOException {
-        EnglishDictionary e = new EnglishDictionary();
-
-        String word = "cat";
-        System.out.println(e.getDefinition(word).toString());
-    }
-
     public EnglishDictionary() throws CsvValidationException, IOException {
 
         // Create an object of filereader class with CSV file as a parameter.
@@ -50,10 +43,6 @@ public class EnglishDictionary {
                 definition.addAll(Arrays.asList(entry[2].split(";")));
                 break;
             }
-//      } else if (word.compareToIgnoreCase(entry[0]) > 0) {
-//      // Break if we've passed where the word would be
-//      break;
-//      }
         }
 
         if (definition.isEmpty()) {
