@@ -12,10 +12,7 @@ import java.util.List;
  * Reads the englishDictionary file ONCE.
  */
 public class EnglishDictionary {
-    public static void main(String[] args) throws CsvValidationException, IOException {
-        EnglishDictionary d = new EnglishDictionary();
-        System.out.println(d.getDefinition("second"));
-    }
+
     private ArrayList<String[]> dictionary = new ArrayList<>();
 
     public EnglishDictionary() throws CsvValidationException, IOException {

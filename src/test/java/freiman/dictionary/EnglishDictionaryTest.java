@@ -32,7 +32,7 @@ class EnglishDictionaryTest {
         List<String> definitions = dictionary.getDefinition("second");
 
         // then
-        assertEquals("[Immediately following the first,  next to the first in order of place or time,  " +
-                        "hence, occuring again,  another,  other.]", definitions.toString());
+        assertEquals("[Immediately following the first,  next to the first in order of place or time,  "
+                + "hence, occuring again,  another,  other.]", definitions.toString());
     }
 }
