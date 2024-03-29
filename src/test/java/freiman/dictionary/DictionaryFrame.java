@@ -12,6 +12,15 @@ public class DictionaryFrame extends JFrame {
 
     private JTextField wordInput;
     private JTextArea defTextArea;
+    EnglishDictionary dict;
+
+    {
+        try {
+            dict = new EnglishDictionary();
+        } catch (CsvValidationException | IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public DictionaryFrame() {
         setSize(800, 598);
@@ -67,7 +76,6 @@ public class DictionaryFrame extends JFrame {
     }
 
     private void define() throws CsvValidationException, IOException {
-        EnglishDictionary dict = new EnglishDictionary();
 
         String word = wordInput.getText();
         List<String> definitions = dict.getDefinition(word);

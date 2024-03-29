@@ -20,7 +20,7 @@ class EnglishDictionaryTest {
         List<String> definitions = dictionary.getDefinition("");
 
         // then
-        assertEquals("[Word not in dictionary.]", definitions.toString());
+        assertEquals("[]", definitions.toString());
     }
 
     @Test
@@ -29,10 +29,10 @@ class EnglishDictionaryTest {
         EnglishDictionary dictionary = new EnglishDictionary();
 
         // when
-        List<String> definitions = dictionary.getDefinition("chariot");
+        List<String> definitions = dictionary.getDefinition("second");
 
         // then
-        assertEquals("[A two-wheeled car or vehicle for war, racing, state processions, etc.]",
-                definitions.toString());
+        assertEquals("[Immediately following the first,  next to the first in order of place or time,  " +
+                        "hence, occuring again,  another,  other.]", definitions.toString());
     }
 }

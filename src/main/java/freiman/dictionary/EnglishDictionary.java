@@ -12,14 +12,17 @@ import java.util.List;
  * Reads the englishDictionary file ONCE.
  */
 public class EnglishDictionary {
+    public static void main(String[] args) throws CsvValidationException, IOException {
+        EnglishDictionary d = new EnglishDictionary();
+        System.out.println(d.getDefinition("second"));
+    }
     private ArrayList<String[]> dictionary = new ArrayList<>();
 
     public EnglishDictionary() throws CsvValidationException, IOException {
 
         // Create an object of filereader class with CSV file as a parameter.
         FileReader filereader = new FileReader(
-                "/Users/annafreiman/Desktop/MCON152/freiman-dictionary-2024/src/main/resources/englishDictionary.csv");
-
+                "src/main/resources/englishDictionary.csv");
         CSVReader reader = new CSVReader(filereader);
         String[] nextRecord;
 
@@ -39,15 +42,12 @@ public class EnglishDictionary {
         List<String> definition = new ArrayList<>();
 
         for (String[] entry : dictionary) {
-            if (word.compareToIgnoreCase(entry[0]) == 0) {
+            if (word.equalsIgnoreCase(entry[0])) {
                 definition.addAll(Arrays.asList(entry[2].split(";")));
                 break;
             }
         }
 
-        if (definition.isEmpty()) {
-            definition.add("Word not in dictionary.");
-        }
         return definition;
     }
 
