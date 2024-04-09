@@ -18,10 +18,12 @@ public class EnglishDictionary {
     public EnglishDictionary() throws CsvValidationException, IOException {
 
         // Create an object of filereader class with CSV file as a parameter.
-        FileReader filereader = new FileReader(
-                "src/main/resources/englishDictionary.csv");
-        CSVReader reader = new CSVReader(filereader);
+        InputStream in = EnglishDictionary.class.getResourceAsStream(
+                "/englishDictionary.csv");
+        CSVReader reader = new CSVReader((new InputStreamReader(in)));
+
         String[] nextRecord;
+
 
         // we are going to read data line by line
         while ((nextRecord = reader.readNext()) != null) {

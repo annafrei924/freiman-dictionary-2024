@@ -5,6 +5,8 @@ import com.opencsv.exceptions.CsvValidationException;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,7 +22,7 @@ class EnglishDictionaryTest {
         List<String> definitions = dictionary.getDefinition("");
 
         // then
-        assertEquals("[]", definitions.toString());
+        assertTrue(definitions.isEmpty());
     }
 
     @Test
@@ -29,10 +31,11 @@ class EnglishDictionaryTest {
         EnglishDictionary dictionary = new EnglishDictionary();
 
         // when
-        List<String> definitions = dictionary.getDefinition("second");
+        List<String> definitions = dictionary.getDefinition("hub");
 
         // then
-        assertEquals("[Immediately following the first,  next to the first in order of place or time,  "
-                + "hence, occuring again,  another,  other.]", definitions.toString());
+        List<String> expectedResult = Arrays.asList("The central part, usually cylindrical, of a wheel",
+                " the nave. See Illust. of Axle box.");
+        assertEquals(expectedResult, definitions);
     }
 }

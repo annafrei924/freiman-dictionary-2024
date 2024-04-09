@@ -48,35 +48,22 @@ public class DictionaryFrame extends JFrame {
         wordInput.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                try {
-                    define();
-                } catch (CsvValidationException | IOException ex) {
-                    throw new RuntimeException(ex);
-                }
+                define();
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                try {
-                    define();
-                } catch (CsvValidationException | IOException ex) {
-                    throw new RuntimeException(ex);
-                }
+                define();
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                try {
-                    define();
-                } catch (CsvValidationException | IOException ex) {
-                    throw new RuntimeException(ex);
-                }
+                define();
             }
         });
     }
 
-    private void define() throws CsvValidationException, IOException {
-
+    private void define() {
         String word = wordInput.getText();
         List<String> definitions = dict.getDefinition(word);
 
