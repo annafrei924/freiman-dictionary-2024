@@ -73,5 +73,7 @@ public class DictionaryFrame extends JFrame {
         }
 
         defTextArea.setText(result.toString());
+
+
     }
 }

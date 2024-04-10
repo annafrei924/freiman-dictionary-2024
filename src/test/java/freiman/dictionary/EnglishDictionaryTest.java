@@ -31,11 +31,10 @@ class EnglishDictionaryTest {
         EnglishDictionary dictionary = new EnglishDictionary();
 
         // when
-        List<String> definitions = dictionary.getDefinition("hub");
-
-        // then
-        List<String> expectedResult = Arrays.asList("The central part, usually cylindrical, of a wheel",
-                " the nave. See Illust. of Axle box.");
+        List<String> definitions = dictionary.getDefinition("film");
+        List<String> expectedResult = Arrays.asList("A thin skin; a pellicle; a membranous covering, causing opacity; "
+                        + "hence, any thin, slight covering.", "A slender thread, as that of a cobweb.",
+                        "To cover with a thin skin or pellicle.");
         assertEquals(expectedResult, definitions);
     }
 }

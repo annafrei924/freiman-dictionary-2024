@@ -17,12 +17,13 @@ public class EnglishDictionary {
 
     public EnglishDictionary() throws CsvValidationException, IOException {
 
+
         // Create an object of filereader class with CSV file as a parameter.
         InputStream in = EnglishDictionary.class.getResourceAsStream(
                 "/englishDictionary.csv");
         CSVReader reader = new CSVReader((new InputStreamReader(in)));
 
-        String[] nextRecord;
+        String[] nextRecord = null;
 
 
         // we are going to read data line by line
@@ -30,8 +31,9 @@ public class EnglishDictionary {
             dictionary.add(nextRecord);
         }
 
-    }
+        reader.close();
 
+    }
 
     /**
      * @param word to look up.
@@ -42,14 +44,14 @@ public class EnglishDictionary {
 
         for (String[] entry : dictionary) {
             if (word.equalsIgnoreCase(entry[0])) {
-                definition.addAll(Arrays.asList(entry[2].split(";")));
-                break;
+                definition.add(entry[2]);
             }
         }
-
         return definition;
     }
-
-
-
 }
+
+
+
+
+
